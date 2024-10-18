@@ -1,7 +1,29 @@
 # MySQL-CheatSheet
 
 ## Table Of Contents
+- [Create Table in database](#Create-Table)
+- [Insert value in table of database](Insert-Value)
 - [Display the name with different style](#Display-Name)
+
+## Create Table
+Example:
+```SQL
+create table persons (
+ID int not null,
+LastName varchar(255) not null,
+FirstName varchar(255),
+Age int check (age>=18),
+city varchar(255) default 'Islamabad'
+);
+```
+
+## Insert Value
+Exaple:
+
+```SQL
+insert into persons(ID, LastName, FirstName, Age,city)
+value(221544,'Ahmad','Radeel',20,'khushab');
+```
 
 ## Display Name
 
