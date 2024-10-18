@@ -18,7 +18,7 @@ city varchar(255) default 'Islamabad'
 ```
 
 ## Insert Value
-Exaple:
+Example:
 
 ```SQL
 insert into persons(ID, LastName, FirstName, Age,city)
