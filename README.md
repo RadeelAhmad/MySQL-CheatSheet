@@ -4,7 +4,7 @@
 - [Create Table in database](#Create-Table)
 - [Insert value in table of database](#Insert-Value)
 - [Display the name with different style](#Display-Name)
-- 
+- [Use of concat](#Use-of-conact)
 
 ## Create Table
 Example:
@@ -61,4 +61,15 @@ select release_year from film where title like 'M%';
 
 ```SQL
 select * from actor where last_name not like '%T';
+```
+
+## Conact
+
+### Create a new table called customer_names with first_name, last_name, and full_name columns, where full_name combines first and last names of all customers.
+```SQL
+create table customer_name as select
+First_name , Last_name , concat(first_name,' ',last_name ) as full_name
+from customer;
+
+select * from customer_name
 ```
