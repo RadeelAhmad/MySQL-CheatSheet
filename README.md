@@ -5,7 +5,8 @@
 - [Insert value in table of database](#Insert-Value)
 - [Display the name with different style](#Display-Name)
 - [Use of concat](#Conact)
-
+- [Insert Value Condition](#Condition)
+- 
 ## Create Table
 Example:
 ```SQL
@@ -72,4 +73,17 @@ First_name , Last_name , concat(first_name,' ',last_name ) as full_name
 from customer;
 
 select * from customer_name
+```
+
+## condition
+
+### In this user must enter age above and greater then 18  
+```SQL
+create table persons (
+ID int not null,
+LastName varchar(255) not null,
+FirstName varchar(255),
+Age int check (age>=18),
+city varchar(255) default 'Islamabad'
+);
 ```
