@@ -1,15 +1,15 @@
 # MySQL-CheatSheet
 
 ## Table Of Contents
-- [Create Table in database](#Create-Table)
-- [Insert value in table of database](#Insert-Value)
-- [Display the name with different style](#Display-Name)
-- [Use of concat](#Conact)
+- [Create Table in Database](#Create-Table)
+- [Insert value in Table of Database](#Insert-Value)
+- [Display the Name with Different Style](#Display-Name)
+- [Use of Concat](#Conact)
 - [Insert Value Condition](#Condition)
-- [Use of alter](#Alter)
+- [Use of Alter](#Alter)
 - [Use of Nested Query](#Nested-Query)
 - [Type of Join](#Join)
-- [Use of 'USING' clause](#USING-clauses)
+- [Use of 'USING' Clause](#USING-clauses)
 
 ## Create Table
 Example:
