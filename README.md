@@ -6,7 +6,8 @@
 - [Display the name with different style](#Display-Name)
 - [Use of concat](#Conact)
 - [Insert Value Condition](#Condition)
-- 
+- [Use of alter](#Alter)
+- []
 ## Create Table
 Example:
 ```SQL
@@ -86,4 +87,14 @@ FirstName varchar(255),
 Age int check (age>=18),
 city varchar(255) default 'Islamabad'
 );
+```
+
+## Alter
+
+### change the Data type and condition
+```SQL
+alter table student modify age int check (age>=18 and age<=35) ;
+alter table faculty modify fname VARCHAR(30);
+alter table faculty modify deptid int not null;
+alter table student add age int;
 ```
