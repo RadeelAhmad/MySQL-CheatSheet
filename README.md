@@ -9,7 +9,7 @@
 - [Use of alter](#Alter)
 - [Use of Nested Query](#Nested-Query)
 - [Type of Join](#Join)
-- 
+- [Use of 'USING' clause](#USING-clauses)
 ## Create Table
 Example:
 ```SQL
@@ -191,51 +191,29 @@ WHERE movies.id = members.movie_id
 SELECT * FROM `movies` CROSS JOIN `members`
 ```
 
-###
+### LEFT JOIN
 
 ```SQL
-
+SELECT movies.title ,members.first_name, members.last_name
+FROM movies
+LEFT JOIN members
+ON members.movie_id = movies.id
 ```
 
-###
+### RIGHT JOIN
 
 ```SQL
-
+SELECT members.first_name , members.last_name , movies.title
+FROM members
+RIGHT JOIN movies
+ON movies.id = members.movie_id
 ```
 
-###
+## USING clauses
 
 ```SQL
-
+SELECT movies.title ,members.first_name , members.last_name
+FROM movies
+LEFT JOIN members
+USING (movie_id) ;
 ```
-
-###
-
-```SQL
-
-```
-
-###
-
-```SQL
-
-```
-
-###
-
-```SQL
-
-```
-
-###
-
-```SQL
-
-```
-
-###
-
-```SQL
-
-```
-
