@@ -94,7 +94,7 @@ city varchar(255) default 'Islamabad'
 
 ## Alter
 
-### change the Data type and condition
+### Change the Data type and condition
 ```SQL
 alter table student modify age int check (age>=18 and age<=35) ;
 alter table faculty modify fname VARCHAR(30);
@@ -104,7 +104,7 @@ alter table student add age int;
 
 ## Nested Query
 
-### less, greater, equal and condition
+### Less, Greater, Equal and Condition
 ```SQL
 SELECT fName, lName, salary
 FROM employee
