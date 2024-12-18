@@ -8,6 +8,7 @@
 - [Insert Value Condition](#Condition)
 - [Use of alter](#Alter)
 - [Use of Nested Query](#Nested-Query)
+- [Type of Join](#Join)
 - 
 ## Create Table
 Example:
@@ -139,26 +140,102 @@ f.fname = 'Ivana'
 );
 ```
 
-### 
+### Find eldest student in each level.
+
+```SQL
+SELECT s.level, s.sname, s.Age
+FROM Student s
+WHERE (s.level , s.Age) IN (
+SELECT level, MAX(Age)
+FROM Student GROUP BY level );
+```
+
+### Retrieve the snum and sname of students who have taken classes from both ‘Ivana Teach’ and ‘Linda Davis’.
+
+```SQL
+select s.snum, s.sname from student s
+where s.snum in (
+select e.snum from
+enrolled e,
+class c,
+faculty f where
+e.snum = s.snum and
+e.cname = c.cname and
+c.fid = f.fid and
+f.fname = 'Ivana'
+)
+and s.snum in (
+select e.snum from
+enrolled e,
+class c,
+faculty f where
+e.snum = s.snum and
+e.cname = c.cname and
+c.fid = f.fid and
+f.fname = 'Linda'
+)
+```
+
+## Join
+
+### INNER JOIN
+```SQL
+SELECT members.first_name , members.last_name , movies.title
+FROM members ,movies
+WHERE movies.id = members.movie_id
+```
+
+### Cross JOIN
+
+```SQL
+SELECT * FROM `movies` CROSS JOIN `members`
+```
+
+###
 
 ```SQL
 
 ```
 
-### 
+###
 
 ```SQL
 
 ```
 
-### 
+###
 
 ```SQL
 
 ```
 
-### 
+###
 
 ```SQL
 
 ```
+
+###
+
+```SQL
+
+```
+
+###
+
+```SQL
+
+```
+
+###
+
+```SQL
+
+```
+
+###
+
+```SQL
+
+```
+
