@@ -7,7 +7,8 @@
 - [Use of concat](#Conact)
 - [Insert Value Condition](#Condition)
 - [Use of alter](#Alter)
-- []
+- [Use of Nested Query](#Nested-Query)
+- 
 ## Create Table
 Example:
 ```SQL
@@ -97,4 +98,28 @@ alter table student modify age int check (age>=18 and age<=35) ;
 alter table faculty modify fname VARCHAR(30);
 alter table faculty modify deptid int not null;
 alter table student add age int;
+```
+
+## Nested Query
+
+### less, greater, equal and condition
+```SQL
+SELECT fName, lName, salary
+FROM employee
+WHERE salary > (SELECT AVG(salary)
+FROM employee);
+```
+
+```SQL
+SELECT fName, lName, salary
+FROM employee
+WHERE salary = (SELECT min(salary)
+FROM employee);
+```
+
+```SQL
+select fName, lName,salary
+from employee where salary > (select salary
+from employee
+where fName like 'Ahmed')
 ```
