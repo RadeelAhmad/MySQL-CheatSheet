@@ -123,3 +123,42 @@ from employee where salary > (select salary
 from employee
 where fName like 'Ahmed')
 ```
+
+### Find the names of all juniors (Level = JR) who are enrolled in a class taught by ‘Ivana Teach’.
+
+```SQL
+select s.sname from student s
+where s.level = 'JR' and snum in (
+select e.snum from
+class c,
+faculty f,
+enrolled e
+where e.cname = c.cname and
+c.fid = f.fid and
+f.fname = 'Ivana'
+);
+```
+
+### 
+
+```SQL
+
+```
+
+### 
+
+```SQL
+
+```
+
+### 
+
+```SQL
+
+```
+
+### 
+
+```SQL
+
+```
