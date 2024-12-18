@@ -10,6 +10,7 @@
 - [Use of Nested Query](#Nested-Query)
 - [Type of Join](#Join)
 - [Use of 'USING' clause](#USING-clauses)
+
 ## Create Table
 Example:
 ```SQL
