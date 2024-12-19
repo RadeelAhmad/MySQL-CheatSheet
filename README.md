@@ -226,3 +226,104 @@ USING (movie_id) ;
 <p align="center">
     <img src="1.png" alt="image1">
 </p>
+
+### Query
+
+```SQL
+CREATE DATABASE Airport;
+
+USE Airport; 
+ 
+CREATE TABLE PLANE_TYPE ( 
+    Model VARCHAR(50) PRIMARY KEY, 
+    Capacity INT NOT NULL CHECK (Capacity > 0), 
+    Weight DECIMAL(10, 2) NOT NULL CHECK (Weight > 0) 
+); 
+ 
+CREATE TABLE HANGAR ( 
+    Number INT PRIMARY KEY, 
+    Location VARCHAR(100) NOT NULL, 
+    Capacity INT NOT NULL CHECK (Capacity > 0) 
+); 
+ 
+CREATE TABLE AIRPLANE ( 
+    RegNo VARCHAR(20) PRIMARY KEY, 
+    Model VARCHAR(50) NOT NULL, 
+    HangerNo INT NOT NULL, 
+    FOREIGN KEY (Model) REFERENCES PLANE_TYPE (Model), 
+    FOREIGN KEY (HangerNo) REFERENCES HANGAR (Number) 
+); 
+ 
+CREATE TABLE EMPLOYEE ( 
+    Ssn VARCHAR(20) PRIMARY KEY, 
+    Salary DECIMAL(10, 2) NOT NULL CHECK (Salary >= 0), 
+    Shift VARCHAR(20) DEFAULT 'Day' 
+); 
+ 
+CREATE TABLE PILOT ( 
+    Lic_num VARCHAR(20) PRIMARY KEY, 
+    Restriction VARCHAR(50) 
+); 
+ 
+CREATE TABLE WORKS_ON ( 
+    Ssn VARCHAR(20), 
+    Model VARCHAR(50), 
+    PRIMARY KEY (Ssn, Model), 
+    FOREIGN KEY (Ssn) REFERENCES EMPLOYEE (Ssn), 
+    FOREIGN KEY (Model) REFERENCES PLANE_TYPE (Model) 
+); 
+ 
+CREATE TABLE FLIES ( 
+    Lic_num VARCHAR(20), 
+    Model VARCHAR(50), 
+    PRIMARY KEY (Lic_num, Model), 
+    FOREIGN KEY (Lic_num) REFERENCES PILOT (Lic_num), 
+    FOREIGN KEY (Model) REFERENCES PLANE_TYPE (Model) 
+); 
+ 
+CREATE TABLE OWNER ( 
+    Ssn VARCHAR(20) PRIMARY KEY, 
+    User_Type CHAR(1) CHECK (User_Type IN ('C', 'P')) 
+); 
+ 
+CREATE TABLE CORPORATION ( 
+    Ssn VARCHAR(20) PRIMARY KEY, 
+    Name VARCHAR(100) NOT NULL, 
+    Phone VARCHAR(20), 
+    Address VARCHAR(200), 
+    FOREIGN KEY (Ssn) REFERENCES OWNER (Ssn) 
+); 
+ 
+CREATE TABLE PERSON ( 
+    Ssn VARCHAR(20) PRIMARY KEY, 
+    Name VARCHAR(100) NOT NULL, 
+    Phone VARCHAR(20), 
+    Address VARCHAR(200), 
+    FOREIGN KEY (Ssn) REFERENCES OWNER (Ssn) 
+); 
+ 
+CREATE TABLE OWNS ( 
+    Ssn VARCHAR(20), 
+    RegNo VARCHAR(20), 
+    Pdate DATE NOT NULL, 
+    PRIMARY KEY (Ssn, RegNo), 
+    FOREIGN KEY (Ssn) REFERENCES OWNER (Ssn), 
+    FOREIGN KEY (RegNo) REFERENCES AIRPLANE (RegNo) 
+); 
+ 
+CREATE TABLE SERVICE ( 
+    Workcode VARCHAR(20) PRIMARY KEY, 
+    Date DATE, 
+    Hours DECIMAL(5, 2) CHECK (Hours > 0), 
+    RegNo VARCHAR(20) NOT NULL, 
+    FOREIGN KEY (RegNo) REFERENCES AIRPLANE (RegNo) 
+); 
+ 
+CREATE TABLE MAINTAIN ( 
+    Ssn VARCHAR(20), 
+    Workcode VARCHAR(20), 
+    PRIMARY KEY (Ssn, Workcode), 
+    FOREIGN KEY (Ssn) REFERENCES EMPLOYEE (Ssn), 
+    FOREIGN KEY (Workcode) REFERENCES SERVICE (Workcode) 
+);
+```
