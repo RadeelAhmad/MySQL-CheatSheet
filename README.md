@@ -219,6 +219,10 @@ LEFT JOIN members
 USING (movie_id) ;
 ```
 
+---
+
+### Consider the below conceptual schema which is designed for ordering systems. You are required to write necessary queries to convert this schema into relational database. Your queries must contain all type of constraints, checks, primary key foreign key relations and default values
+
 <p align="center">
     <img src="1.png" alt="image1">
 </p>
