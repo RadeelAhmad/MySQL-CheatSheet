@@ -220,5 +220,5 @@ USING (movie_id) ;
 ```
 
 <p align="center">
-    <img src="images/1.png" alt="image1">
+    <img src="1.png" alt="image1">
 </p>
